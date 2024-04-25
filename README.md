@@ -75,7 +75,7 @@ npm install
 ## Install puppeteer dependencies:
 
 ```sh
-sudo apt-get install -y libxshmfence-dev libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
+sudo apt-get install -y libxshmfence-dev libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils libvips-dev
 
 ```
 
@@ -91,6 +91,18 @@ sudo apt-get install libappindicator1
 
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
+```
+
+### Troubleshooting
+
+If you encounter installation issues, please try the procedures below
+. Error Sharp Runtime
+
+```sh
+    yarn add sharp
+    npm install --include=optional sharp
+    //or
+    yarn add sharp --ignore-engines
 ```
 
 ## Run Server
@@ -250,7 +262,7 @@ To generate an access token, you must use your `SECRET_KEY`.
 Using the route:
 
 ```shell
-  curl -X POST --location "http://localhost:21465/api/mySession/eUsouSeCreTo/generate-token"
+  curl -X POST --location "http://localhost:21465/api/mySession/THISISMYSECURETOKEN/generate-token"
 ```
 
 ### Response:
@@ -299,7 +311,7 @@ curl -X POST --location "http://localhost:21465/api/mySession/send-message" \
     -H "Accept: application/json" \
     -H "Authorization: Bearer \$2b\$10\$8aQFQxnWREtBEMZK_iHMe.u7NeoNkjL7s6NYai_83Pb31Ycss6Igm" \
     -d "{
-          \"phone\": \"5511982743910\",
+          \"phone\": \"5511900000000\",
           \"message\": \"*Abner* Rodrigues\"
         }"
 ```
