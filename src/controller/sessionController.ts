@@ -304,14 +304,17 @@ export async function logOutSession(req: Request, res: Response) {
    */
   try {
     const session = req.session;
+    req.logger.info(`Logout session: ${session}`);
     await req.client.logout();
     deleteSessionOnArray(req.session);
 
     setTimeout(async () => {
       const pathUserData = config.customUserDataDir + req.session;
+      req.logger.info(`pathUserData: ${pathUserData}`);
       const pathTokens = __dirname + `/../../tokens/${req.session}.data.json`;
 
       if (fs.existsSync(pathUserData)) {
+        req.logger.info(`Deleting pathUserData: ${pathUserData}`);
         await fs.promises.rm(pathUserData, {
           recursive: true,
           maxRetries: 5,
