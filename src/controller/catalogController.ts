@@ -780,7 +780,6 @@ export async function sendLinkCatalog(req: Request, res: Response) {
         phone,
         `${message} ${catalogLink}`,
         {
-          useTemplateButtons: true,
           buttons: [
             {
               url: catalogLink,
