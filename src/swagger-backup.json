@@ -18735,7 +18735,6 @@
           "phone": "554498005216",
           "message": "Hello World",
           "options": {
-            "useTemplateButtons": "true",
             "buttons": [
               {
                 "id": "1",
