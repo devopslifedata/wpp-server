@@ -392,15 +392,20 @@ export async function sendLinkPreview(req: Request, res: Response) {
 
   try {
     const results: any = [];
-    for (const contato of phone) {
-      results.push(
-        await req.client.sendLinkPreview(`${contato}`, url, caption)
-      );
-    }
+    await req.client.sendText(
+        phone,
+        `${caption}`,
+        {
+          buttons: [
+            {
+              url: url,
+              text: 'Mostra prodotto',
+            },
+          ],
+        }
+    );
 
-    if (results.length === 0)
-      return res.status(400).json('Error sending message');
-    returnSucess(res, results);
+    return res.status(200).json({ status: 'success', response: results });
   } catch (error) {
     returnError(req, res, error);
   }
